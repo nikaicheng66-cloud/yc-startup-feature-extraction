@@ -1,0 +1,91 @@
+{
+    "industry": {
+        "description": "The specific vertical market or economic sector the company operates in. (Note: Do NOT use for horizontal business models like B2B or B2C; those belong to target_audience).",
+        "allowed_values": [
+            "enterprise_software",
+            "fintech",
+            "healthcare_and_biotech",
+            "industrials_and_manufacturing",
+            "e_commerce_and_retail",
+            "education",
+            "real_estate_and_proptech",
+            "other_unknown"
+        ]
+    },
+    "core_technology": {
+        "description": "The main underlying technological infrastructure used by the company. (Note: Do NOT use for business models like SaaS. Map AI/ML to 'ai_ml').",
+        "allowed_values": [
+            "ai_ml",
+            "iot",
+            "blockchain_web3",
+            "hardware_and_robotics",
+            "data_and_cloud_infra",
+            "other_unknown"
+        ]
+    },
+    "product_type": {
+        "description": "The structural archetype of the product or service offered.",
+        "allowed_values": [
+            "software_platform",
+            "two_sided_marketplace",
+            "standalone_tool",
+            "managed_service",
+            "other_unknown"
+        ]
+    },
+    "target_audience": {
+        "description": "The primary group of customers or users the company aims to serve (Captures B2B/B2C orientation).",
+        "allowed_values": [
+            "enterprises",
+            "small_and_medium_businesses",
+            "individual_consumers",
+            "developers",
+            "other_unknown"
+        ]
+    },
+    "monetization_strategy": {
+        "description": "The primary method through which the company generates revenue.",
+        "allowed_values": [
+            "subscription",
+            "transaction_fee",
+            "freemium",
+            "licensing",
+            "advertising",
+            "direct_sales_or_one_time",
+            "other_unknown"
+        ]
+    },
+    "delivery_medium": {
+        "description": "The primary medium or channel through which the company's product or service is delivered.",
+        "allowed_values": [
+            "web_application",
+            "mobile_application",
+            "browser_extension",
+            "api_integration",
+            "hardware_device",
+            "on_premise_software",
+            "other_unknown"
+        ]
+    },
+    "value_proposition": {
+        "description": "The main operational benefit or advantage offered by the company's product or service.",
+        "allowed_values": [
+            "workflow_automation",
+            "cost_efficiency",
+            "personalization",
+            "security_and_privacy",
+            "accessibility",
+            "other_unknown"
+        ]
+    },
+    "regulatory_environment": {
+        "description": "The specific regulatory or legal compliance domain the company directly operates within.",
+        "allowed_values": [
+            "financial_compliance",
+            "healthcare_compliance",
+            "data_privacy",
+            "unregulated_or_low_friction",
+            "other_unknown"
+        ]
+    }
+}

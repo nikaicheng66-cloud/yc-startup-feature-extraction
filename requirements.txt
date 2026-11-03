@@ -1,0 +1,13 @@
+pandas
+numpy
+requests
+beautifulsoup4
+tqdm
+pymysql
+sqlalchemy
+python-dotenv
+scikit-learn
+sentence-transformers
+pydantic
+langchain-core
+langchain-openai
