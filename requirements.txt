@@ -11,3 +11,8 @@ sentence-transformers
 pydantic
 langchain-core
 langchain-openai
+scipy
+category_encoders
+shap
+joblib
+matplotlib

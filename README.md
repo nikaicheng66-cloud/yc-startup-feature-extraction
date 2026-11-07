@@ -16,6 +16,20 @@ An LLM pipeline that turns free-text company descriptions into a clean, categori
 | 5 | ″ | Labels rows: YC = 1, Graveyard = 0. Names that appear in both lists are treated as failures. |
 | 6 | `02_build_lookup_tables.ipynb` | Normalizes the flat table into `*_lookup` tables plus `company_feature_keys` (integer foreign keys) for modeling. |
 | 7 | `03_export_features.ipynb` | Exports the final table to CSV. |
+| 8 | `04_success_classifier.ipynb` | Drops the 249 parse-error rows (7,345 left), screens each tag with chi-square tests, odds ratios and Wilson lower bounds, then trains Random Forest classifiers on binary- and one-hot-encoded features (5-fold `GridSearchCV`, balanced class weights, stratified 80/20 split) and explains the one-hot model with SHAP. |
+
+## Success classifier (notebook 04)
+
+Test set: 1,469 companies (stratified 20 %). Always predicting "success" would score 76.2 % accuracy.
+
+| Encoding | Accuracy | Precision | Recall | F1 | ROC-AUC |
+|---|---|---|---|---|---|
+| Binary (`category_encoders`) | 0.920 | 0.954 | 0.940 | 0.947 | 0.963 |
+| **One-hot** | **0.922** | **0.956** | **0.941** | **0.949** | **0.965** |
+
+By total absolute SHAP impact, `core_technology` ranks first, followed by `industry`, `product_type` and `target_audience`. Read these results together with the source bias described under *Known limitations*: part of the signal reflects which list a company came from.
+
+The notebook's outputs come from the original run. The cell that computed `shap_values_success` and `X_encoded` (SHAP values for the one-hot model) is not included, so the final SHAP-summary cell does not run on its own.
 
 ## Extracted dimensions
 
@@ -56,4 +70,4 @@ pip install -r requirements.txt
 cp .env.example .env   # fill in your own keys / MySQL credentials
 ```
 
-Run the notebooks from the `notebooks/` folder; they read and write `../data/`.
+Run the notebooks from the `notebooks/` folder; they read and write `../data/`. Notebook 04 reads `../data/final_yc_extracted_features.csv` and writes its intermediate CSVs and saved models into `notebooks/` (git-ignored).
