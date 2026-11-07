@@ -29,8 +29,6 @@ Test set: 1,469 companies (stratified 20 %). Always predicting "success" would s
 
 By total absolute SHAP impact, `core_technology` ranks first, followed by `industry`, `product_type` and `target_audience`. Read these results together with the source bias described under *Known limitations*: part of the signal reflects which list a company came from.
 
-The notebook's outputs come from the original run. The cell that computed `shap_values_success` and `X_encoded` (SHAP values for the one-hot model) is not included, so the final SHAP-summary cell does not run on its own.
-
 ## Extracted dimensions
 
 | Dimension | # values | Most common | `other_unknown` |
